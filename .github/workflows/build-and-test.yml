@@ -29,8 +29,6 @@ jobs:
 
       - name: printing    
         run: echo ls -ltr
-             echo cd spark
-             echo ls -ktr
 
       - name: Upload to artifact
         uses: actions/upload-artifact@v4
