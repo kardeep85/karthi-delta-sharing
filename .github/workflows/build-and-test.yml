@@ -27,6 +27,12 @@ jobs:
           java-version: '8'
       - run: ./build/sbt compile
 
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: spark-jar
+          path: spark/target/*.whl
+
   python:
     runs-on: ubuntu-24.04
     strategy:
