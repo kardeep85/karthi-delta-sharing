@@ -28,13 +28,13 @@ jobs:
       - run: ./build/sbt compile
 
       - name: printing    
-        run: echo ls -ltr
+        run: echo ls -ltr /home/runner/work/karthi-delta-sharing/karthi-delta-sharing/spark/target
 
       - name: Upload to artifact
         uses: actions/upload-artifact@v4
         with:
           name: spark-jar
-          path: spark/target/*.whl
+          path:  /home/runner/work/karthi-delta-sharing/karthi-delta-sharing/spark/target/*.jar
 
   python:
     runs-on: ubuntu-24.04
