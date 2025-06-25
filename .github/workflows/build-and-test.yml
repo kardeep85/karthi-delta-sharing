@@ -84,7 +84,7 @@ jobs:
         run: ./build/sbt package
         
       - name: Upload jar to artifact
-        uses: action/upload-artifact
+        uses: action/upload-artifact@v4
         with: 
          name: delta-sharing-client.jar
          path: target/scala-*/delta-sahring-client.jar
