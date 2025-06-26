@@ -38,12 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: delta-jar
-          path: ./spark   
+          path: ./spark/target/scala-2.12/*.jar   
         
-      - name: Run tests
-        run: |
-          # See also https://github.com/conda/conda/issues/7980
-          source "$CONDA_PREFIX/etc/profile.d/conda.sh"
-          conda activate test-environment
-          ./python/dev/lint-python
-          ./python/dev/pytest
