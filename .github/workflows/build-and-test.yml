@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '8'
-      - run: ./build/sbt compile
+      - run: ./build/sbt test
 
   python:
     runs-on: ubuntu-24.04
@@ -59,11 +59,11 @@ jobs:
             ~/.ivy2
             ~/.cache/coursier
           key: build-and-test-python
-      - name: Install Java 8..
+      - name: Install Java 8
         uses: actions/setup-java@v1
         with:
           java-version: '8'
-      - name: Install dependencies..
+      - name: Install dependencies
         run: |
           # See also https://github.com/conda/conda/issues/7980
           source "$CONDA_PREFIX/etc/profile.d/conda.sh"
@@ -83,20 +83,12 @@ jobs:
       - name: Build Server
         run: ./build/sbt package
         
-      - name: printing...   
-        run: |
-         ls -ltr .
-         cd spark
-         ls -ltr .
-         cd target
-         ls -ltr
-         
-      - name: Upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: delta-jar
-          path: ./spark   
-        
+      - name: Upload jar to artifact
+        uses: action/upload-artifact@v4
+        with: 
+         name: delta-sharing-client
+         path: ./spark
+                
       - name: Run tests
         run: |
           # See also https://github.com/conda/conda/issues/7980
