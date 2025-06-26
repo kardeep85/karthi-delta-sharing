@@ -27,16 +27,6 @@ jobs:
           java-version: '8'
       - run: ./build/sbt compile
 
-      - name: printing    
-        run: |
-         ls -ltr .
-         cd spark
-         ls -ltr .
-         cd target
-         ls -ltr
-
-
-
   python:
     runs-on: ubuntu-24.04
     strategy:
@@ -93,7 +83,7 @@ jobs:
       - name: Build Server
         run: ./build/sbt package
         
-      - name: printing    
+      - name: printing...   
         run: |
          ls -ltr .
          cd spark
