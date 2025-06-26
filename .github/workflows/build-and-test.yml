@@ -82,6 +82,14 @@ jobs:
           maturin develop
       - name: Build Server
         run: ./build/sbt package
+
+      - name: printing...   
+        run: |
+         ls -ltr .
+         cd spark
+         ls -ltr .
+         cd target
+         ls -ltr
         
       - name: Upload jar to artifact
         uses: action/upload-artifact@v4
