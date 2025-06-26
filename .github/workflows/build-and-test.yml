@@ -30,13 +30,16 @@ jobs:
       - name: printing    
         run: |
          ls -ltr .
-         cd 
+         cd spark
+         ls -ltr .
+         cd target
+         ls -ltr
 
       - name: Upload to artifact
         uses: actions/upload-artifact@v4
         with:
           name: spark-jar
-          path: ./spark/target/*.jar
+          path: ./spark
 
   python:
     runs-on: ubuntu-24.04
