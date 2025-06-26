@@ -35,11 +35,7 @@ jobs:
          cd target
          ls -ltr
 
-      - name: Upload to artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: spark-jar
-          path: ./spark
+
 
   python:
     runs-on: ubuntu-24.04
@@ -96,6 +92,21 @@ jobs:
           maturin develop
       - name: Build Server
         run: ./build/sbt package
+        
+      - name: printing    
+        run: |
+         ls -ltr .
+         cd spark
+         ls -ltr .
+         cd target
+         ls -ltr
+         
+      - name: Upload to artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: delta-jar
+          path: ./spark   
+        
       - name: Run tests
         run: |
           # See also https://github.com/conda/conda/issues/7980
